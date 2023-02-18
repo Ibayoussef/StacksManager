@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Flex } from "../Flex/Flex";
 import Typography from "../Typography/Typography";
 import close from "../../assets/close.svg";
@@ -21,6 +21,9 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
   const { state, action } = sidebarActive;
   const { filters } = useSelector((state: any) => state.stacks);
   const dispatch = useDispatch();
+  useEffect(() => {
+    console.log(filters);
+  }, [filters]);
   const [stateDate, setState] = useState<any>([
     {
       startDate: new Date(),

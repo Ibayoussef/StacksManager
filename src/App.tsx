@@ -11,7 +11,7 @@ import { usePaginate } from "./hooks/usePaginate";
 import Pagination from "./components/Pagination/Pagination";
 function App() {
   const [data, setData] = useState<any>([]);
-  const { stacks, searchValue, searchResult } = useSelector(
+  const { stacks, searchValue, searchResult, loading } = useSelector(
     (state: any) => state.stacks
   );
   const [page, setPage] = useState<number>(0);
@@ -19,7 +19,7 @@ function App() {
   const paginatedData = usePaginate(displayedData);
   useEffect(() => {
     setData(paginatedData);
-  }, [displayedData]);
+  }, [displayedData, loading]);
 
   return (
     <>

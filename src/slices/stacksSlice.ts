@@ -47,6 +47,42 @@ export const stacksSlice = createSlice({
     storeFilters: (state, action: PayloadAction<Filters>) => {
       state.filters = action.payload;
     },
+    filterStacks: (state) => {
+      // Filter by author
+      if (state.filters.author) {
+        state.searchResult = state.searchResult.filter(
+          (stack: Stack) => stack.user === state.filters.author
+        );
+      }
+
+      // Filter by shared status
+      if (state.filters.shared) {
+        state.searchResult = state.searchResult.filter(
+          (stack: Stack) => stack.is_shared
+        );
+      }
+
+      // Filter by inactive status
+      if (state.filters.inactive) {
+        state.searchResult = state.searchResult.filter(
+          (stack: Stack) => !stack.is_shared
+        );
+      }
+
+      // Filter by creation date range
+      if (
+        state.filters.created &&
+        state.filters.created.startDate &&
+        state.filters.created.endDate
+      ) {
+        state.searchResult = state.searchResult.filter((stack: Stack) => {
+          const stackCreatedDate = new Date(stack.created);
+          const startDate = new Date(state.filters.created.startDate);
+          const endDate = new Date(state.filters.created.endDate);
+          return stackCreatedDate >= startDate && stackCreatedDate <= endDate;
+        });
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -64,6 +100,7 @@ export const stacksSlice = createSlice({
   },
 });
 
-export const { searchStack, getUsers, storeFilters } = stacksSlice.actions;
+export const { searchStack, getUsers, storeFilters, filterStacks } =
+  stacksSlice.actions;
 
 export default stacksSlice.reducer;
