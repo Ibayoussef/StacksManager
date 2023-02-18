@@ -1,8 +1,10 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ComponentState } from "../Enums/ComponentState";
+import { Component } from "../Enums/Component";
 
 const initialState: ComponentState = {
   components: [],
+  filteredComponents: [],
   status: "idle",
   error: "",
 };
@@ -29,7 +31,14 @@ export const fetchComponents = createAsyncThunk(
 export const componentsSlice = createSlice({
   name: "components",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    filterComponents: (state, action: PayloadAction<string>) => {
+      const filterResult = state.components.filter((component: Component) =>
+        action.payload.includes(component.id)
+      );
+      state.filteredComponents = filterResult;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchComponents.pending, (state) => {
@@ -45,5 +54,7 @@ export const componentsSlice = createSlice({
       });
   },
 });
+
+export const { filterComponents } = componentsSlice.actions;
 
 export default componentsSlice.reducer;

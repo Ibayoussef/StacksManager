@@ -1,8 +1,12 @@
 import React from "react";
 import { Flex } from "../Flex/Flex";
-import { ComponentCard } from "./ComponentCard/ComponentCard";
+import ComponentCard from "./ComponentCard/ComponentCard";
+import { useSelector } from "react-redux";
+import { Component } from "../../Enums/Component";
 
 const Grid: React.FC = () => {
+  const { filteredComponents } = useSelector((state: any) => state.components);
+  console.log(filteredComponents);
   return (
     <Flex
       direction="row"
@@ -11,11 +15,9 @@ const Grid: React.FC = () => {
       className="grid"
       align="flex-start"
     >
-      <ComponentCard />
-      <ComponentCard />
-      <ComponentCard />
-      <ComponentCard />
-      <ComponentCard />
+      {filteredComponents.map((component: Component) => (
+        <ComponentCard key={component.id} component={component} />
+      ))}
     </Flex>
   );
 };

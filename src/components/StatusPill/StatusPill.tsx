@@ -1,8 +1,10 @@
-import React, { useMemo } from "react";
+import React, { useMemo, ReactNode } from "react";
 
 interface StatusPillProps {
-  isShared: boolean;
+  isShared?: boolean;
+  button?: boolean;
   fontSize?: number;
+  children?: ReactNode;
 }
 
 /**
@@ -12,14 +14,25 @@ interface StatusPillProps {
  * @param {number} {fontSize} specifies the font size for the text inside the pill
  * @return {JSX.Element} StatusPill
  */
-const StatusPill: React.FC<StatusPillProps> = ({ isShared, fontSize }) => {
+const StatusPill: React.FC<StatusPillProps> = ({
+  isShared,
+  fontSize,
+  button,
+  children,
+}) => {
   const status = useMemo(() => (isShared ? "Shared" : "Inactive"), [isShared]);
   return (
     <div
-      style={{ fontSize: fontSize }}
+      style={{
+        fontSize: fontSize,
+        background: button ? "#B52C2C" : "",
+        cursor: button ? "pointer" : "",
+        color: button ? "#fff" : "",
+      }}
       className={`pill ${status.toLowerCase()}`}
     >
-      {status}
+      {!children && status}
+      {children && children}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { StacksState } from "../Enums/StacksState";
 const initialState: StacksState = {
   stacks: [],
   searchResult: [],
+  searchValue: "",
   status: "idle",
   error: "",
 };

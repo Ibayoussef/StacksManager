@@ -4,6 +4,7 @@ interface TypographyProps {
   children: ReactNode;
   bold?: boolean;
   fontSize?: number;
+  textOverflow?: boolean;
 }
 
 /**
@@ -18,9 +19,18 @@ const Typography: React.FC<TypographyProps> = ({
   children,
   bold,
   fontSize,
+  textOverflow,
 }) => {
   return (
-    <div style={{ fontWeight: bold ? 700 : 400, fontSize: fontSize }}>
+    <div
+      style={{
+        fontWeight: bold ? 700 : 400,
+        fontSize: fontSize,
+        textOverflow: textOverflow ? "ellipsis" : "",
+        overflow: textOverflow ? "hidden" : "",
+        width: textOverflow ? "150px" : "",
+      }}
+    >
       {children}
     </div>
   );

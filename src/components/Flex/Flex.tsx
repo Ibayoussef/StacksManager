@@ -8,7 +8,12 @@ interface FlexProps {
     | "flex-end"
     | "space-between"
     | "space-around";
-  align?: "center" | "flex-start" | "flex-end";
+  align?:
+    | "center"
+    | "flex-start"
+    | "flex-end"
+    | "space-between"
+    | "space-around";
   gap?: number;
   className?: string;
   textAlign?: "left" | "right" | "center";
