@@ -28,6 +28,10 @@ The following is a basic user flow for the My Stack Manager application:
 
 3.  Viewing components: To view the details of a component within a stack, the user clicks on the component name, which takes them to a page displaying the component details, such as its name, type, flavor, and configuration.
 
+## Deployed version
+
+[Link text Here](https://stacks-manager.vercel.app)
+
 ## Getting Started
 
 To run the application, you will need to have the following:
