@@ -6,7 +6,6 @@ import { Component } from "../../Enums/Component";
 
 const Grid: React.FC = () => {
   const { filteredComponents } = useSelector((state: any) => state.components);
-  console.log(filteredComponents);
   return (
     <Flex
       direction="row"

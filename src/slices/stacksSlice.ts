@@ -48,23 +48,24 @@ export const stacksSlice = createSlice({
       state.filters = action.payload;
     },
     filterStacks: (state) => {
+      state.searchResult = state.stacks;
       // Filter by author
       if (state.filters.author) {
-        state.searchResult = state.stacks.filter(
+        state.searchResult = state.searchResult.filter(
           (stack: Stack) => stack.user === state.filters.author
         );
       }
 
       // Filter by shared status
       if (state.filters.shared) {
-        state.searchResult = state.stacks.filter(
+        state.searchResult = state.searchResult.filter(
           (stack: Stack) => stack.is_shared
         );
       }
 
       // Filter by inactive status
       if (state.filters.inactive) {
-        state.searchResult = state.stacks.filter(
+        state.searchResult = state.searchResult.filter(
           (stack: Stack) => !stack.is_shared
         );
       }
@@ -75,7 +76,7 @@ export const stacksSlice = createSlice({
         state.filters.created.startDate &&
         state.filters.created.endDate
       ) {
-        state.searchResult = state.stacks.filter((stack: Stack) => {
+        state.searchResult = state.searchResult.filter((stack: Stack) => {
           const stackCreatedDate = new Date(stack.created).getTime();
           const startDate = new Date(state.filters.created.startDate).getTime();
           const endDate = new Date(state.filters.created.endDate).getTime();
@@ -90,8 +91,8 @@ export const stacksSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchStacks.fulfilled, (state, action) => {
-        state.status = "succeeded";
         state.stacks = action.payload;
+        state.status = "succeeded";
       })
       .addCase(fetchStacks.rejected, (state, action) => {
         state.status = "failed";

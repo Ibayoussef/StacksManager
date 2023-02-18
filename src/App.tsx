@@ -10,12 +10,14 @@ import { Stack } from "./Enums/Stack";
 import { usePaginate } from "./hooks/usePaginate";
 import Pagination from "./components/Pagination/Pagination";
 import { filterStacks } from "./slices/stacksSlice";
+import video from "./assets/no-result.mp4";
+import Loading from "./components/Loading/Loading";
 function App() {
   const dispatch = useDispatch();
   const [data, setData] = useState<any>([]);
-  const { stacks, searchValue, searchResult, loading, filters } = useSelector(
-    (state: any) => state.stacks
-  );
+  const [loading, setLoading] = useState(false);
+  const { stacks, searchValue, searchResult, status, filters, error } =
+    useSelector((state: any) => state.stacks);
   const { author, shared, inactive, created } = filters;
   const [page, setPage] = useState<number>(0);
   const filteringCondition =
@@ -28,14 +30,16 @@ function App() {
   const displayedData = filteringCondition ? searchResult : stacks;
   const paginatedData = usePaginate(displayedData);
   useEffect(() => {
+    setLoading(true);
     setData(paginatedData);
-    console.log(paginatedData);
-  }, [displayedData, loading]);
+    setTimeout(() => setLoading(false), 1000);
+  }, [displayedData, status]);
   useEffect(() => {
     dispatch(filterStacks());
   }, [filters]);
   return (
     <>
+      {loading && <Loading />}
       <Navbar />
       <Container>
         <Flex direction="row" justify="space-between" align="center">
@@ -48,12 +52,16 @@ function App() {
               <Dropdown key={stack.id} stack={stack} />
             ))}
         </Flex>
-        <Flex justify="center">
-          <Pagination
-            page={{ state: page, action: setPage }}
-            pagesNumber={usePaginate(displayedData)}
-          />
-        </Flex>
+        {data.length > 0 && (
+          <Flex justify="center">
+            <Pagination
+              page={{ state: page, action: setPage }}
+              pagesNumber={usePaginate(displayedData)}
+            /> 
+          </Flex>
+        )}
+        {data.length === 0 && !error && <video autoPlay loop src={video} />}
+        {error && <p>{error}</p>}
       </Container>
     </>
   );
