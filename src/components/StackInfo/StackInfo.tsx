@@ -5,7 +5,7 @@ import StatusPill from "../StatusPill/StatusPill";
 import { ContentProps } from "../Dropdown/Content/Content";
 import { sliceID } from "../../hooks/useSliceID";
 import { useFormatDate } from "../../hooks/useFormatDate";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 interface StackInfoProps extends ContentProps {}
 
 const StackInfo: React.FC<StackInfoProps> = ({
@@ -20,18 +20,6 @@ const StackInfo: React.FC<StackInfoProps> = ({
     );
   return (
     <Flex direction="column" className="stackinfo" gap={24}>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable={false}
-        pauseOnHover
-        theme="light"
-      />
       <Flex direction="column" gap={10}>
         <Typography fontSize={32}>UUID</Typography>
         <Typography fontSize={20}>{id}</Typography>

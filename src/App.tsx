@@ -12,14 +12,21 @@ import Pagination from "./components/Pagination/Pagination";
 import { filterStacks } from "./slices/stacksSlice";
 import video from "./assets/no-result.mp4";
 import Loading from "./components/Loading/Loading";
+import { ToastContainer, toast } from "react-toastify";
 function App() {
   const dispatch = useDispatch();
   const [data, setData] = useState<any>([]);
+  const notify = () =>
+    toast.error("Oops! Something went wrong please refresh the page");
   const [loading, setLoading] = useState(false);
   const { stacks, searchValue, searchResult, status, filters, error } =
     useSelector((state: any) => state.stacks);
+  const { status: componentsStatus } = useSelector(
+    (state: any) => state.stacks
+  );
   const { author, shared, inactive, created } = filters;
   const [page, setPage] = useState<number>(0);
+  window.onerror = () => notify();
   const filteringCondition =
     author ||
     shared ||
@@ -30,6 +37,9 @@ function App() {
   const displayedData = filteringCondition ? searchResult : stacks;
   const paginatedData = usePaginate(displayedData);
   useEffect(() => {
+    if (status === "failed" || componentsStatus === "failed") {
+      notify();
+    }
     setLoading(true);
     setData(paginatedData);
     setTimeout(() => setLoading(false), 1000);
@@ -40,6 +50,19 @@ function App() {
   return (
     <>
       {loading && <Loading />}
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      />
+
       <Navbar />
       <Container>
         <Flex direction="row" justify="space-between" align="center">
@@ -57,7 +80,7 @@ function App() {
             <Pagination
               page={{ state: page, action: setPage }}
               pagesNumber={usePaginate(displayedData)}
-            /> 
+            />
           </Flex>
         )}
         {data.length === 0 && !error && <video autoPlay loop src={video} />}

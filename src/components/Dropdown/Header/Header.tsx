@@ -26,8 +26,10 @@ const Header: React.FC<HeaderProps> = ({
 }) => {
   const dispatch = useDispatch();
   const { state, action } = collapse;
+
   const handleCollapse = () => {
     dispatch(filterComponents(components));
+
     action(!state);
   };
   return (

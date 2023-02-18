@@ -45,8 +45,8 @@ export const componentsSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchComponents.fulfilled, (state, action) => {
-        state.status = "succeeded";
         state.components = action.payload;
+        state.status = action.payload.length > 0 ? "succeeded" : "failed";
       })
       .addCase(fetchComponents.rejected, (state, action) => {
         state.status = "failed";

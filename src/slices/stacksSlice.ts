@@ -92,7 +92,8 @@ export const stacksSlice = createSlice({
       })
       .addCase(fetchStacks.fulfilled, (state, action) => {
         state.stacks = action.payload;
-        state.status = "succeeded";
+
+        state.status = action.payload.length > 0 ? "succeeded" : "failed";
       })
       .addCase(fetchStacks.rejected, (state, action) => {
         state.status = "failed";
