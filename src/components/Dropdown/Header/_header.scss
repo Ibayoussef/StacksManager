@@ -11,13 +11,12 @@
     &__title,
     &__components {
         display: flex;
-        flex-wrap: wrap;
+      
         flex-direction: row;
         align-items: center;
         gap: 21px;
-        width: 40%;
     }
-
+    &__title{width: 30%;}
     &__button--collapse,
     &__button--collapsed {
         cursor: pointer;

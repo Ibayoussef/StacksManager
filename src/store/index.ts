@@ -10,4 +10,5 @@ const store = configureStore({
 });
 store.dispatch(fetchStacks());
 store.dispatch(fetchComponents());
+
 export default store;

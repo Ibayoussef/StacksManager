@@ -1,0 +1,35 @@
+
+@import "./Checkbox/checkbox";
+@import "./DropdownInput/dropdowninput";
+
+.filtersidebar {
+    width: 0px;
+    border-bottom-left-radius: 100%;
+      border-top-left-radius: 100%;
+    height: 0vh;
+    background: #FFFFFF;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    >* {
+        opacity: 0;
+    }
+    transition: all .8s; 
+        &.active {
+         width: 377px;
+        border-bottom-left-radius:0%;
+            border-top-left-radius: 0%;
+        height: 100vh;
+          >* {
+        opacity: 1;
+    }
+    }
+        &__header {
+            background: linear-gradient(90deg, rgba(143, 89, 157, 0.31) 2.92%, rgba(67, 62, 153, 0.76) 78.53%);
+            padding: 17px 19px;
+        }
+            &__filter-list {
+                padding: 30px 18px;
+            }
+}

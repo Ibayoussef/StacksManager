@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Searchbar from "./components/Searchbar/Searchbar";
 import { Flex } from "./components/Flex/Flex";
@@ -10,11 +10,17 @@ import { Stack } from "./Enums/Stack";
 import { usePaginate } from "./hooks/usePaginate";
 import Pagination from "./components/Pagination/Pagination";
 function App() {
+  const [data, setData] = useState<any>([]);
   const { stacks, searchValue, searchResult } = useSelector(
     (state: any) => state.stacks
   );
   const [page, setPage] = useState<number>(0);
   const displayedData = searchValue ? searchResult : stacks;
+  const paginatedData = usePaginate(displayedData);
+  useEffect(() => {
+    setData(paginatedData);
+  }, [displayedData]);
+
   return (
     <>
       <Navbar />
@@ -23,10 +29,11 @@ function App() {
           <Searchbar />
           <Toolbar />
         </Flex>
-        <Flex direction="column" gap={24}>
-          {usePaginate(displayedData)[page].map((stack: Stack) => (
-            <Dropdown key={stack.id} stack={stack} />
-          ))}
+        <Flex direction="column">
+          {data &&
+            data[page]?.map((stack: Stack) => (
+              <Dropdown key={stack.id} stack={stack} />
+            ))}
         </Flex>
         <Flex justify="center">
           <Pagination

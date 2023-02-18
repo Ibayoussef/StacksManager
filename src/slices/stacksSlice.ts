@@ -1,10 +1,18 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Stack } from "../Enums/Stack";
 import { StacksState } from "../Enums/StacksState";
+import { Filters } from "../Enums/Filters";
 
 const initialState: StacksState = {
   stacks: [],
   searchResult: [],
+  users: [],
+  filters: {
+    author: "",
+    shared: false,
+    inactive: false,
+    created: "",
+  },
   searchValue: "",
   status: "idle",
   error: "",
@@ -29,6 +37,16 @@ export const stacksSlice = createSlice({
       state.searchResult = searchResult;
       state.searchValue = action.payload;
     },
+    getUsers: (state) => {
+      const users = state.stacks.map((stack: Stack) => stack.user);
+      const filteredUsers = users.filter(
+        (item, index) => users.indexOf(item) === index
+      );
+      state.users = filteredUsers;
+    },
+    storeFilters: (state, action: PayloadAction<Filters>) => {
+      state.filters = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -46,6 +64,6 @@ export const stacksSlice = createSlice({
   },
 });
 
-export const { searchStack } = stacksSlice.actions;
+export const { searchStack, getUsers, storeFilters } = stacksSlice.actions;
 
 export default stacksSlice.reducer;
