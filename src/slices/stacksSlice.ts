@@ -27,6 +27,7 @@ export const stacksSlice = createSlice({
           stack.name.toLowerCase().includes(action.payload.toLowerCase())
       );
       state.searchResult = searchResult;
+      state.searchValue = action.payload;
     },
   },
   extraReducers: (builder) => {
