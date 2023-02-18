@@ -35,7 +35,7 @@ const Toolbar: React.FC = () => {
         sidebarActive={{ state: sidebarActive, action: setSidebarActive }}
       />
       <img src={filter} onClick={() => setSidebarActive(true)} alt="filter" />
-      <img src={add} alt="add" />
+      <img src={add} onClick={() => notify()} alt="add" />
     </Flex>
   );
 };
