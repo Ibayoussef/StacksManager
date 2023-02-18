@@ -11,7 +11,7 @@ const initialState: StacksState = {
     author: "",
     shared: false,
     inactive: false,
-    created: "",
+    created: { startDate: "", endDate: "" },
   },
   searchValue: "",
   status: "idle",
