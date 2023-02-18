@@ -1,0 +1,30 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 34px 38px;
+    background: linear-gradient(89.97deg, rgba(143, 89, 157, 0.76) 0.02%, rgba(67, 62, 153, 0.76) 101.09%);
+    border-radius: 8px;
+    flex-wrap: wrap;
+
+    &__title,
+    &__components {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        gap: 21px;
+    }
+
+    &__button--collapse,
+    &__button--collapsed {
+        cursor: pointer;
+        transition: all 0.4s;
+    }
+
+    &__button--collapsed {
+        cursor: pointer;
+        transform: rotate(180deg);
+    }
+}

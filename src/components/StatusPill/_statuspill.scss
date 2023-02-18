@@ -1,0 +1,15 @@
+.pill {
+    background: #433E99;
+    border-radius: 8px;
+    width: fit-content;
+    padding: 10px 23px;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+
+.inactive {
+    background: rgba(67, 62, 153, 0.38);
+    color: rgba(255, 255, 255, 0.63);
+}

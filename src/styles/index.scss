@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+//components
+@import '../components/Navbar/navbar';
+@import '../components/Searchbar/searchbar';
+@import '../components/StatusPill/statuspill';
+@import "../components/Dropdown/dropdown";
+@import "../components/Container/container";
+@import "../components/ComponentGrid/componentgrid";
+@import "../components/StackInfo/stackinfo";
+
+:root {
+  font-family: 'Roboto', sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}

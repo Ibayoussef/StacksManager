@@ -1,0 +1,11 @@
+$background-color: linear-gradient(90deg, rgba(143, 89, 157, 0.31) 2.92%, rgba(67, 62, 153, 0.76) 78.53%);
+
+.nav {
+    background: $background-color;
+    padding: 0px 41px;
+
+    img {
+        width: 154px;
+        height: 50px;
+    }
+}

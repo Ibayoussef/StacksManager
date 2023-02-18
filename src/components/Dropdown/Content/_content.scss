@@ -1,0 +1,17 @@
+.content {
+    width: 100%;
+    background: rgba(217, 217, 217, 0.29);
+    transition: all .4s;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    &.collapse {
+        height: 0px;
+    }
+    &.collapsed {
+        height: 564px;
+        padding: 42px;
+    
+    }
+}
