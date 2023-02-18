@@ -5,7 +5,7 @@ import StatusPill from "../StatusPill/StatusPill";
 import { ContentProps } from "../Dropdown/Content/Content";
 import { sliceID } from "../../hooks/useSliceID";
 import { useFormatDate } from "../../hooks/useFormatDate";
-
+import { ToastContainer, toast } from "react-toastify";
 interface StackInfoProps extends ContentProps {}
 
 const StackInfo: React.FC<StackInfoProps> = ({
@@ -14,8 +14,24 @@ const StackInfo: React.FC<StackInfoProps> = ({
   created,
   project,
 }) => {
+  const notify = () =>
+    toast.error(
+      "Sorry this feature is not yet available, we are working on it"
+    );
   return (
     <Flex direction="column" className="stackinfo" gap={24}>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable={false}
+        pauseOnHover
+        theme="light"
+      />
       <Flex direction="column" gap={10}>
         <Typography fontSize={32}>UUID</Typography>
         <Typography fontSize={20}>{id}</Typography>
@@ -35,7 +51,7 @@ const StackInfo: React.FC<StackInfoProps> = ({
         <Typography fontSize={20}>{sliceID(project)}</Typography>
       </Flex>
       <Flex justify="flex-end" className="button-container">
-        <StatusPill button fontSize={20}>
+        <StatusPill onClick={() => notify()} button fontSize={20}>
           Delete
         </StatusPill>
       </Flex>
