@@ -41,7 +41,7 @@ const DropdownInput: React.FC = () => {
 
         <label className="dropdown__face">
           <div className="dropdown__text">
-            {author ? author : "Select an author"}
+            {author ? author.slice(0, 6) : "Select an author"}
           </div>
 
           <div className="dropdown__arrow"></div>
@@ -49,10 +49,7 @@ const DropdownInput: React.FC = () => {
 
         <ul className="dropdown__items">
           {users.map((user: string) => (
-            <li
-              key={user}
-              onClick={(e) => handleSelect(e.currentTarget.innerHTML)}
-            >
+            <li key={user} onClick={() => handleSelect(user)}>
               {user.slice(0, 6)}
             </li>
           ))}

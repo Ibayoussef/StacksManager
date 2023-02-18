@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Searchbar from "./components/Searchbar/Searchbar";
@@ -9,18 +9,31 @@ import Toolbar from "./components/Toolbar/Toolbar";
 import { Stack } from "./Enums/Stack";
 import { usePaginate } from "./hooks/usePaginate";
 import Pagination from "./components/Pagination/Pagination";
+import { filterStacks } from "./slices/stacksSlice";
 function App() {
+  const dispatch = useDispatch();
   const [data, setData] = useState<any>([]);
-  const { stacks, searchValue, searchResult, loading } = useSelector(
+  const { stacks, searchValue, searchResult, loading, filters } = useSelector(
     (state: any) => state.stacks
   );
+  const { author, shared, inactive, created } = filters;
   const [page, setPage] = useState<number>(0);
-  const displayedData = searchValue ? searchResult : stacks;
+  const filteringCondition =
+    author ||
+    shared ||
+    inactive ||
+    searchValue ||
+    created.startDate ||
+    created.endDate;
+  const displayedData = filteringCondition ? searchResult : stacks;
   const paginatedData = usePaginate(displayedData);
   useEffect(() => {
     setData(paginatedData);
+    console.log(paginatedData);
   }, [displayedData, loading]);
-
+  useEffect(() => {
+    dispatch(filterStacks());
+  }, [filters]);
   return (
     <>
       <Navbar />

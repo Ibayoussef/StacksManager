@@ -5,6 +5,7 @@ interface StatusPillProps {
   button?: boolean;
   fontSize?: number;
   children?: ReactNode;
+  onClick?: () => void;
 }
 
 /**
@@ -17,6 +18,7 @@ interface StatusPillProps {
 const StatusPill: React.FC<StatusPillProps> = ({
   isShared,
   fontSize,
+  onClick,
   button,
   children,
 }) => {
@@ -29,6 +31,7 @@ const StatusPill: React.FC<StatusPillProps> = ({
         cursor: button ? "pointer" : "",
         color: button ? "#fff" : "",
       }}
+      onClick={() => (button && onClick ? onClick() : null)}
       className={`pill ${status.toLowerCase()}`}
     >
       {!children && status}

@@ -50,21 +50,21 @@ export const stacksSlice = createSlice({
     filterStacks: (state) => {
       // Filter by author
       if (state.filters.author) {
-        state.searchResult = state.searchResult.filter(
+        state.searchResult = state.stacks.filter(
           (stack: Stack) => stack.user === state.filters.author
         );
       }
 
       // Filter by shared status
       if (state.filters.shared) {
-        state.searchResult = state.searchResult.filter(
+        state.searchResult = state.stacks.filter(
           (stack: Stack) => stack.is_shared
         );
       }
 
       // Filter by inactive status
       if (state.filters.inactive) {
-        state.searchResult = state.searchResult.filter(
+        state.searchResult = state.stacks.filter(
           (stack: Stack) => !stack.is_shared
         );
       }
@@ -75,11 +75,11 @@ export const stacksSlice = createSlice({
         state.filters.created.startDate &&
         state.filters.created.endDate
       ) {
-        state.searchResult = state.searchResult.filter((stack: Stack) => {
-          const stackCreatedDate = new Date(stack.created);
-          const startDate = new Date(state.filters.created.startDate);
-          const endDate = new Date(state.filters.created.endDate);
-          return stackCreatedDate >= startDate && stackCreatedDate <= endDate;
+        state.searchResult = state.stacks.filter((stack: Stack) => {
+          const stackCreatedDate = new Date(stack.created).getTime();
+          const startDate = new Date(state.filters.created.startDate).getTime();
+          const endDate = new Date(state.filters.created.endDate).getTime();
+          return stackCreatedDate > startDate && stackCreatedDate < endDate;
         });
       }
     },

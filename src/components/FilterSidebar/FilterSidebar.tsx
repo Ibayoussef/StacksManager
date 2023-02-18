@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Flex } from "../Flex/Flex";
 import Typography from "../Typography/Typography";
 import close from "../../assets/close.svg";
@@ -7,7 +7,7 @@ import Checkbox from "./Checkbox/Checkbox";
 import { DateRange } from "react-date-range";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilters } from "../../slices/stacksSlice";
-import { useFormatDate } from "../../hooks/useFormatDate";
+import StatusPill from "../StatusPill/StatusPill";
 interface ISidebarActive {
   state: boolean;
   action: React.Dispatch<React.SetStateAction<boolean>>;
@@ -21,16 +21,21 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
   const { state, action } = sidebarActive;
   const { filters } = useSelector((state: any) => state.stacks);
   const dispatch = useDispatch();
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
-  const [stateDate, setState] = useState<any>([
-    {
-      startDate: new Date(),
-      endDate: null,
-      key: "selection",
-    },
-  ]);
+  const range = filters.created.endDate
+    ? [
+        {
+          startDate: new Date(filters.created.startDate),
+          endDate: new Date(filters.created.endDate),
+          key: "selection",
+        },
+      ]
+    : [
+        {
+          startDate: new Date(),
+          endDate: new Date(),
+          key: "selection",
+        },
+      ];
   return (
     <div className={`filtersidebar ${state ? " active" : ""}`}>
       <Flex
@@ -65,20 +70,35 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
         <DateRange
           editableDateInputs={true}
           onChange={(item: any) => {
-            setState([item.selection]);
             dispatch(
               storeFilters({
                 ...filters,
                 created: {
-                  startDate: useFormatDate(item.selection.startDate),
-                  endDate: useFormatDate(item.selection.endDate),
+                  startDate: new Date(item.selection.startDate).getTime(),
+                  endDate: new Date(item.selection.endDate).getTime(),
                 },
               })
             );
           }}
           moveRangeOnFirstSelection={false}
-          ranges={stateDate}
+          ranges={range}
         />
+        <StatusPill
+          onClick={() =>
+            dispatch(
+              storeFilters({
+                author: "",
+                shared: false,
+                inactive: false,
+                created: { startDate: "", endDate: "" },
+              })
+            )
+          }
+          button
+          fontSize={20}
+        >
+          Clear Filters
+        </StatusPill>
       </Flex>
     </div>
   );
