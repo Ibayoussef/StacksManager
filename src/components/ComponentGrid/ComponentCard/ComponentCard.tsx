@@ -17,35 +17,35 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
   return (
     <Flex direction="column" className="card" gap={10}>
       <Flex direction="row" justify="space-between" align="center">
-        <Typography textOverflow fontSize={1.4}>
+        <Typography textOverflow fontSize={2}>
           {name}
         </Typography>
-        <StatusPill isShared={is_shared} fontSize={1} />
+        <StatusPill isShared={is_shared} fontSize={1.5} />
       </Flex>
       <Flex direction="row" justify="space-between" align="center">
         <Flex direction="column" gap={0}>
-          <Typography fontSize={1}>type</Typography>
-          <Typography textOverflow fontSize={0.8}>
+          <Typography fontSize={1.5}>type</Typography>
+          <Typography textOverflow fontSize={1}>
             {type}
           </Typography>
         </Flex>
         <Flex direction="column" gap={0} textAlign="right">
-          <Typography fontSize={1}>Created at</Typography>
-          <Typography fontSize={0.9}>{useFormatDate(created)}</Typography>
+          <Typography fontSize={1.2}>Created at</Typography>
+          <Typography fontSize={1}>{useFormatDate(created)}</Typography>
         </Flex>
       </Flex>
       <Flex direction="row" justify="space-between" align="center">
         <Flex direction="column" gap={0}>
-          <Typography fontSize={1}>flavor</Typography>
-          <Typography fontSize={0.8}>{flavor}</Typography>
+          <Typography fontSize={1.2}>flavor</Typography>
+          <Typography fontSize={1}>{flavor}</Typography>
         </Flex>
         <Flex direction="column" gap={0} textAlign="right">
-          <Typography fontSize={1}>author</Typography>
-          <Typography fontSize={0.8}>{sliceID(user)}</Typography>
+          <Typography fontSize={1.2}>author</Typography>
+          <Typography fontSize={1}>{sliceID(user)}</Typography>
         </Flex>
       </Flex>
       <Flex direction="row" justify="flex-start" gap={11} align="center">
-        <Typography fontSize={1}>Copy Configuration</Typography>
+        <Typography fontSize={1.2}>Copy Configuration</Typography>
         <img src={copy} alt="copy" />
       </Flex>
     </Flex>
