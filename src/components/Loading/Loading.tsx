@@ -1,9 +1,25 @@
 import React from "react";
 
-const Loading: React.FC = () => {
+interface LoadingProps {
+  demo?: boolean;
+}
+const Loading: React.FC<LoadingProps> = ({ demo }) => {
   return (
-    <div className="scene-container">
-      <div className="scene">
+    <div
+      className="scene-container"
+      style={{
+        position: demo ? "relative" : "fixed",
+        width: demo ? "500px" : "",
+        maxHeight: demo ? "500px" : "",
+      }}
+    >
+      <div
+        className="scene"
+        style={{
+          position: demo ? "relative" : "fixed",
+          width: demo ? "500px" : "",
+        }}
+      >
         <div className="plane">
           <div className="cube cube--0">
             <div className="cube__side"></div>

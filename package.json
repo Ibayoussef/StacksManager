@@ -2,12 +2,18 @@
   "name": "zenml",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "type": "common",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "browserslist": [
+    ">1%",
+    "last 1 version",
+    "Firefox ESR",
+    "not dead"
+  ],
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",
     "date-fns": "^2.29.3",
@@ -17,17 +23,34 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-toastify": "^9.1.1",
-    "rsuite": "^5.27.0",
     "yaml": "^2.2.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6",
+    "@babel/preset-typescript": "^7.18.6",
     "@types/react": "^18.0.27",
     "@types/react-copy-to-clipboard": "^5.0.4",
     "@types/react-date-range": "^1.4.4",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "babel-loader": "^9.1.2",
+    "babel-polyfill": "^6.26.0",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "node-sass": "^8.0.0",
+    "react-docgen-typescript": "^2.2.2",
+    "react-styleguidist": "^13.1.1",
     "sass": "^1.58.3",
+    "sass-loader": "^10.2.0",
+    "style-loader": "^3.3.1",
+    "svg-url-loader": "^8.0.0",
+    "ts-loader": "^9.4.2",
+    "typedoc": "^0.23.25",
     "typescript": "^4.9.3",
-    "vite": "^4.1.0"
+    "url-loader": "^4.1.1",
+    "vite": "^4.1.0",
+    "webpack": "^5.75.0"
   }
 }
