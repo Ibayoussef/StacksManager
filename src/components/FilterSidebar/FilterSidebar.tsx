@@ -56,17 +56,17 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
         gap={18}
         className="filtersidebar__filter-list"
       >
-        <Typography fontSize={2}>Author</Typography>
+        <Typography fontSize={1.2}>Author</Typography>
         <DropdownInput />
-        <Flex direction="row" gap={19}>
-          <Typography fontSize={2}>Shared</Typography>
+        <Flex direction="row" align="center" gap={19}>
+          <Typography fontSize={1.2}>Shared</Typography>
           <Checkbox isShared />
         </Flex>
-        <Flex direction="row" gap={19}>
-          <Typography fontSize={2}>Inactive</Typography>
+        <Flex direction="row" align="center" gap={19}>
+          <Typography fontSize={1.2}>Inactive</Typography>
           <Checkbox />
         </Flex>
-        <Typography fontSize={2}>Created at</Typography>
+        <Typography fontSize={1.2}>Created at</Typography>
         <DateRange
           editableDateInputs={true}
           onChange={(item: any) => {

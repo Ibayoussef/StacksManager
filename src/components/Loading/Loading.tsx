@@ -9,8 +9,8 @@ const Loading: React.FC<LoadingProps> = ({ demo }) => {
       className="scene-container"
       style={{
         position: demo ? "relative" : "fixed",
-        width: demo ? "500px" : "",
-        maxHeight: demo ? "500px" : "",
+        width: demo ? "500px" : "100%",
+        maxHeight: demo ? "500px" : "100%",
       }}
     >
       <div
