@@ -35,14 +35,14 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div className="header">
       <div className="header__title">
-        <Typography bold fontSize={32}>
+        <Typography bold fontSize={2}>
           {name}
         </Typography>
         <StatusPill isShared={isShared} />
       </div>
       <div className="header__components">
         <img src={box} alt="box" />
-        <Typography fontSize={32}>{componentsNumber} Components</Typography>
+        <Typography fontSize={2}>{componentsNumber} Components</Typography>
       </div>
       <img
         className={`header__button--${state ? "collapsed" : "collapse"}`}

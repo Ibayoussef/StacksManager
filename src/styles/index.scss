@@ -22,6 +22,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+ font-size: clamp(5px, 0.8vw, 18px);
 }
 .rdrEndEdge,.rdrStartEdge,.rdrInRange {
   color: rgba(67, 62, 153, 0.76)!important;

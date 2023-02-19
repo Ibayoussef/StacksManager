@@ -37,12 +37,17 @@ function App() {
   const displayedData = filteringCondition ? searchResult : stacks;
   const paginatedData = usePaginate(displayedData);
   useEffect(() => {
+    setLoading(true);
+    setTimeout(() => setLoading(false), 1000);
+  }, []);
+  useEffect(() => {
     if (status === "failed" || componentsStatus === "failed") {
       notify();
     }
-    setLoading(true);
+    if (paginatedData.length === 1) {
+      setPage(0);
+    }
     setData(paginatedData);
-    setTimeout(() => setLoading(false), 1000);
   }, [displayedData, status]);
   useEffect(() => {
     dispatch(filterStacks());
@@ -83,8 +88,7 @@ function App() {
             />
           </Flex>
         )}
-        {data.length === 0 && !error && <video autoPlay loop src={video} />}
-        {error && <p>{error}</p>}
+        {data.length === 0 && <video autoPlay loop src={video} />}
       </Container>
     </>
   );

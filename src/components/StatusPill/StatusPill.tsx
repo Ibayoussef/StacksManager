@@ -26,7 +26,7 @@ const StatusPill: React.FC<StatusPillProps> = ({
   return (
     <div
       style={{
-        fontSize: fontSize,
+        fontSize: `${fontSize}rem`,
         background: button ? "#B52C2C" : "",
         cursor: button ? "pointer" : "",
         color: button ? "#fff" : "",

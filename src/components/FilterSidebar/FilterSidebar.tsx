@@ -44,7 +44,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
         className="filtersidebar__header"
         align="center"
       >
-        <Typography bold fontSize={32}>
+        <Typography bold fontSize={2}>
           Filters
         </Typography>
         <img src={close} alt="close" onClick={() => action(false)} />
@@ -56,17 +56,17 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
         gap={18}
         className="filtersidebar__filter-list"
       >
-        <Typography fontSize={32}>Author</Typography>
+        <Typography fontSize={2}>Author</Typography>
         <DropdownInput />
         <Flex direction="row" gap={19}>
-          <Typography fontSize={32}>Shared</Typography>
+          <Typography fontSize={2}>Shared</Typography>
           <Checkbox isShared />
         </Flex>
         <Flex direction="row" gap={19}>
-          <Typography fontSize={32}>Inactive</Typography>
+          <Typography fontSize={2}>Inactive</Typography>
           <Checkbox />
         </Flex>
-        <Typography fontSize={32}>Created at</Typography>
+        <Typography fontSize={2}>Created at</Typography>
         <DateRange
           editableDateInputs={true}
           onChange={(item: any) => {
@@ -95,7 +95,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
             )
           }
           button
-          fontSize={20}
+          fontSize={1}
         >
           Clear Filters
         </StatusPill>
