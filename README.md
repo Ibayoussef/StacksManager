@@ -59,7 +59,8 @@ My Stack Manager is a web application that allows users to view stacks and their
 - considered using `styleguidist`to generate a documentation server for the components that gets generated from the markdowns since it doesn't work with vite
   i had to add webpack/babel and some loaders.
 
-`src/
+```bash
+src/
 ├─ components/
 │  ├─ TestComponent/
 │  │  ├─ **/\*.scss
@@ -78,7 +79,8 @@ My Stack Manager is a web application that allows users to view stacks and their
 │  ├─ hooks/
 │  │  ├─ tests/
 │  │  │  ├─ **/\*.test.js
-│  │  ├─ **/\*.ts`
+│  │  ├─ **/\*.ts
+```
 
 ## Features
 
