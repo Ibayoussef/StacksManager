@@ -35,7 +35,7 @@ const StatusPill: React.FC<StatusPillProps> = ({
       className={`pill ${status.toLowerCase()}`}
     >
       {!children && status}
-      {children && children}
+      {children}
     </div>
   );
 };

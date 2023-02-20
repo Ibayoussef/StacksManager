@@ -3,7 +3,7 @@ export interface Filters {
   shared: boolean;
   inactive: boolean;
   created: {
-    startDate: Date | string;
-    endDate: Date | string;
+    startDate: Date | number | string;
+    endDate: Date | number | string;
   };
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Flex } from "../Flex/Flex";
 import Typography from "../Typography/Typography";
 import close from "../../assets/close.svg";
@@ -8,6 +8,7 @@ import { DateRange } from "react-date-range";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilters } from "../../slices/stacksSlice";
 import StatusPill from "../StatusPill/StatusPill";
+import { AppState } from "../../Enums/AppState";
 interface ISidebarActive {
   state: boolean;
   action: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,8 +20,9 @@ interface FilterSidebarProps {
 
 const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
   const { state, action } = sidebarActive;
-  const { filters } = useSelector((state: any) => state.stacks);
+  const { filters } = useSelector((state: AppState) => state.stacks);
   const dispatch = useDispatch();
+
   const range = filters.created.endDate
     ? [
         {
@@ -36,6 +38,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
           key: "selection",
         },
       ];
+
   return (
     <div
       data-testid="filter-sidebar"

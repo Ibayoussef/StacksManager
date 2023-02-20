@@ -3,13 +3,16 @@ import { Flex } from "../Flex/Flex";
 import ComponentCard from "./ComponentCard/ComponentCard";
 import { useSelector } from "react-redux";
 import { Component } from "../../Enums/Component";
+import { AppState } from "../../Enums/AppState";
 
 interface GridProps {
   id: string;
 }
 
 const Grid: React.FC<GridProps> = ({ id }) => {
-  const { filteredComponents } = useSelector((state: any) => state.components);
+  const { filteredComponents } = useSelector(
+    (state: AppState) => state.components
+  );
   return (
     <Flex
       direction="row"

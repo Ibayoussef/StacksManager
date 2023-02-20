@@ -8,6 +8,7 @@ import { sliceID } from "../../../hooks/useSliceID";
 import { useFormatDate } from "../../../hooks/useFormatDate";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
+
 interface ComponentCardProps {
   component: Component;
 }
@@ -22,6 +23,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
       setCopied(false);
     }
   }, [copied]);
+
   return (
     <Flex direction="column" className="card" gap={10}>
       <Flex direction="row" justify="space-between" align="center">

@@ -1,13 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUsers, storeFilters } from "../../../slices/stacksSlice";
+import { AppState } from "../../../Enums/AppState";
 
 const DropdownInput: React.FC = () => {
   const dispatch = useDispatch();
-  const { users, filters } = useSelector((state: any) => state.stacks);
+  const { users, filters } = useSelector((state: AppState) => state.stacks);
   const { author } = filters;
   const [checked, setChecked] = useState<boolean>(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     dispatch(getUsers());
     const handleClickOutside = (event: MouseEvent) => {
@@ -25,6 +27,7 @@ const DropdownInput: React.FC = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [checked]);
+
   const handleSelect = (option: string) => {
     dispatch(storeFilters({ ...filters, author: option }));
     setChecked(false);

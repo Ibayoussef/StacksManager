@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { storeFilters } from "../../../slices/stacksSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { AppState } from "../../../Enums/AppState";
 interface CheckboxProps {
   isShared?: boolean;
 }
 
 const Checkbox: React.FC<CheckboxProps> = ({ isShared }) => {
-  const { filters } = useSelector((state: any) => state.stacks);
+  const { filters } = useSelector((state: AppState) => state.stacks);
   const { shared, inactive } = filters;
   const dispatch = useDispatch();
   const handleCheck = (checked: boolean) => {
