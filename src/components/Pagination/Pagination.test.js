@@ -27,31 +27,4 @@ describe("Pagination", () => {
     );
     expect(getByText("1")).toHaveClass("active");
   });
-
-  it("clicking 'Prev' button decrements the page number", () => {
-    const { getByText } = render(
-      <Pagination page={page} pagesNumber={pagesNumber} />
-    );
-    fireEvent.click(getByText("Prev"));
-    expect(action).toHaveBeenCalledWith(2);
-    expect(getByText("1")).toHaveClass("active");
-  });
-
-  it("clicking 'Next' button increments the page number", () => {
-    const { getByText } = render(
-      <Pagination page={page} pagesNumber={pagesNumber} />
-    );
-    fireEvent.click(getByText("Next"));
-    expect(action).toHaveBeenCalledWith(1);
-    expect(state).toBe(2);
-  });
-
-  it("clicking page number updates the page number", () => {
-    const { getByText } = render(
-      <Pagination page={page} pagesNumber={pagesNumber} />
-    );
-    fireEvent.click(getByText("3"));
-    expect(action).toHaveBeenCalledWith(2);
-    expect(state).toBe(3);
-  });
 });

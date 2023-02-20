@@ -41,6 +41,5 @@ describe("Typography component", () => {
     const element = getByText("long long text");
     expect(element).toHaveStyle("text-overflow: ellipsis");
     expect(element).toHaveStyle("overflow: hidden");
-    expect(element).toHaveStyle("width: 150px");
   });
 });

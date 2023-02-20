@@ -1,9 +1,4 @@
-import {
-  createAsyncThunk,
-  createSlice,
-  PayloadAction,
-  current,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Stack } from "../Enums/Stack";
 import { StacksState } from "../Enums/StacksState";
 import { Filters } from "../Enums/Filters";
@@ -143,6 +138,8 @@ export const stacksSlice = createSlice({
 
       if (
         state.filters.created &&
+        state.filters.created.startDate !== "" &&
+        state.filters.created.endDate !== "" &&
         state.filters.created.startDate === state.filters.created.endDate
       ) {
         state.searchResult = state.searchResult.filter((stack: Stack) => {
@@ -157,6 +154,8 @@ export const stacksSlice = createSlice({
       // Filter by creation date range
       if (
         state.filters.created &&
+        state.filters.created.startDate !== "" &&
+        state.filters.created.endDate !== "" &&
         state.filters.created.startDate !== state.filters.created.endDate
       ) {
         state.searchResult = state.searchResult.filter((stack: Stack) => {
