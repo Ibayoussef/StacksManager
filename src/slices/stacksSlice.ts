@@ -70,12 +70,6 @@ export const stacksSlice = createSlice({
      *  @param {PayloadAction<string>} action - The action containing the search value.
      */
     searchStack: (state, action: PayloadAction<string>) => {
-      const searchResult = state.stacks.filter(
-        (stack: Stack) =>
-          stack.id.toLowerCase().includes(action.payload.toLowerCase()) ||
-          stack.name.toLowerCase().includes(action.payload.toLowerCase())
-      );
-      state.searchResult = searchResult;
       state.searchValue = action.payload;
     },
     /**
@@ -164,6 +158,23 @@ export const stacksSlice = createSlice({
           const endDate = new Date(state.filters.created.endDate).getTime();
           return stackCreatedDate >= startDate && stackCreatedDate <= endDate;
         });
+      }
+      if (state.searchValue) {
+        state.searchResult = state.searchResult.filter(
+          (stack: Stack) =>
+            stack.id.toLowerCase().includes(state.searchValue.toLowerCase()) ||
+            stack.name.toLowerCase().includes(state.searchValue.toLowerCase())
+        );
+      }
+      if (
+        !state.searchResult &&
+        state.filters.created.startDate === "" &&
+        state.filters.created.endDate === "" &&
+        !state.filters.inactive &&
+        !state.filters.shared &&
+        !state.filters.author
+      ) {
+        state.searchResult = state.stacks;
       }
     },
   },

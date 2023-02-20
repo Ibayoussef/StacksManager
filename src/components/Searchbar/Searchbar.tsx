@@ -1,7 +1,7 @@
 import React, { ChangeEvent } from "react";
 import search from "../../assets/search.svg";
 import { useDispatch } from "react-redux";
-import { searchStack } from "../../slices/stacksSlice";
+import { searchStack, filterStacks } from "../../slices/stacksSlice";
 
 /**
 Searchbar component
@@ -18,6 +18,7 @@ const Searchbar: React.FC = () => {
   const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     dispatch(searchStack(value));
+    dispatch(filterStacks());
   };
   return (
     <div className="input-container">

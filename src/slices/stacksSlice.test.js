@@ -41,7 +41,6 @@ describe("stacksSlice", () => {
     const searchResult = [{ id: "1", name: "test" }];
     const expected = {
       ...state,
-      searchResult: searchResult,
       searchValue: name,
     };
 
