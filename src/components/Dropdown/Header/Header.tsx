@@ -15,11 +15,13 @@ interface HeaderProps {
   isShared: boolean;
   componentsNumber: number;
   components: any;
+  id: string;
 }
 
 const Header: React.FC<HeaderProps> = ({
   collapse,
   name,
+  id,
   isShared,
   componentsNumber,
   components,
@@ -28,7 +30,7 @@ const Header: React.FC<HeaderProps> = ({
   const { state, action } = collapse;
 
   const handleCollapse = () => {
-    dispatch(filterComponents(components));
+    dispatch(filterComponents({ components: components, id: id }));
 
     action(!state);
   };

@@ -12,7 +12,7 @@ describe("Grid component", () => {
   it("renders component cards", () => {
     render(
       <Provider store={store}>
-        <Grid />
+        <Grid id={"125f317c-1bcf-4497-905d-857b72108af5"} />
       </Provider>
     );
 

@@ -23,6 +23,7 @@ describe("Header", () => {
     isShared: true,
     componentsNumber: 3,
     components: [1, 2, 3],
+    id: "1",
   };
 
   afterEach(() => {
@@ -47,7 +48,7 @@ describe("Header", () => {
     fireEvent.click(arrowButton);
     expect(mockDispatch).toHaveBeenCalledWith({
       type: "components/filterComponents",
-      payload: props.components,
+      payload: { components: props.components, id: props.id },
     });
     expect(props.collapse.action).toHaveBeenCalledWith(true);
   });

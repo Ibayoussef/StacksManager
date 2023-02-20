@@ -12,7 +12,7 @@ describe("Content", () => {
     render(
       <Provider store={store}>
         <Content
-          id="stack-id"
+          id="125f317c-1bcf-4497-905d-857b72108af5"
           user="user"
           project="project"
           created="2022-02-20"
@@ -26,7 +26,7 @@ describe("Content", () => {
       <Provider store={store}>
         <Content
           collapse={false}
-          id="stack-id"
+          id="125f317c-1bcf-4497-905d-857b72108af5"
           user="user"
           project="project"
           created="2022-02-20"
@@ -42,7 +42,7 @@ describe("Content", () => {
       <Provider store={store}>
         <Content
           collapse={true}
-          id="stack-id"
+          id="125f317c-1bcf-4497-905d-857b72108af5"
           user="user"
           project="project"
           created="2022-02-20"
@@ -58,7 +58,7 @@ describe("Content", () => {
       <Provider store={store}>
         <Content
           collapse={false}
-          id="stack-id"
+          id="125f317c-1bcf-4497-905d-857b72108af5"
           user="user"
           project="project"
           created="2022-02-20"
@@ -74,7 +74,7 @@ describe("Content", () => {
       <Provider store={store}>
         <Content
           collapse={true}
-          id="stack-id"
+          id="125f317c-1bcf-4497-905d-857b72108af5"
           user="user"
           project="project"
           created="2022-02-20"

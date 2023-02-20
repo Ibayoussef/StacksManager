@@ -18,7 +18,7 @@ const Content: React.FC<ContentProps> = ({
 }) => {
   return (
     <div className={`content ${collapse ? "collapse" : "collapsed"}`}>
-      {!collapse && <Grid />}
+      {!collapse && <Grid id={id} />}
       {!collapse && (
         <StackInfo id={id} user={user} project={project} created={created} />
       )}

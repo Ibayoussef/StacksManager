@@ -55,12 +55,15 @@ describe("components slice", () => {
     ];
     const state = {
       components,
-      filteredComponents: [],
+      filteredComponents: {},
       status: "succeeded",
       error: "",
     };
-    const nextState = componentsSlice.reducer(state, filterComponents("2"));
-    expect(nextState.filteredComponents).toEqual([components[1]]);
+    const nextState = componentsSlice.reducer(
+      state,
+      filterComponents({ components: "2", id: "0" })
+    );
+    expect(nextState.filteredComponents[0]).toEqual([components[1]]);
   });
 
   it("should handle fetchComponents with an empty response", () => {

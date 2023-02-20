@@ -18,6 +18,7 @@ const Dropdown: React.FC<DropdownProps> = ({ stack }) => {
       <Header
         collapse={{ state: collapse, action: setCollapse }}
         name={name}
+        id={id}
         isShared={is_shared}
         componentsNumber={componentsNumber}
         components={componentsIDs}

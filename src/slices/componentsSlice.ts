@@ -9,7 +9,7 @@ import { Component } from "../Enums/Component";
 
 const initialState: ComponentState = {
   components: [],
-  filteredComponents: [],
+  filteredComponents: {},
   status: "idle",
   error: "",
 };
@@ -42,11 +42,18 @@ export const componentsSlice = createSlice({
     @param {ComponentState} state - Current state.
     @param {import("@reduxjs/toolkit").PayloadAction<string>} action - Action with the payload of the ID.
     */
-    filterComponents: (state, action: PayloadAction<string>) => {
+    filterComponents: (
+      state,
+      action: PayloadAction<{ components: string; id: string }>
+    ) => {
       const filterResult = state.components.filter((component: Component) =>
-        action.payload.includes(component.id)
+        action.payload.components.includes(component.id)
       );
-      state.filteredComponents = filterResult;
+      if (!Object.keys(state.filteredComponents).includes(action.payload.id)) {
+        Object.assign(state.filteredComponents, {
+          [action.payload.id]: filterResult,
+        });
+      }
     },
   },
   extraReducers: (builder) => {
