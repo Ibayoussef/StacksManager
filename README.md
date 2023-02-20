@@ -89,7 +89,7 @@ The following is a basic user flow for the My Stack Manager application:
 
 ## Deployed version
 
-[Link text Here](https://stacks-manager.vercel.app)
+[Link](https://stacks-manager.vercel.app)
 
 ## Getting Started
 
