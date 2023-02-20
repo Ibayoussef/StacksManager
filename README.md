@@ -2,9 +2,9 @@
 
 My Stack Manager is a web application that allows users to view stacks and their components.
 
-## Thoughts
+# Thoughts
 
-# UI/UX
+## UI/UX
 
 - The first thing thing that comes to mind that it's going to be a devops tool created mainly for developers as users.
 
@@ -41,7 +41,7 @@ My Stack Manager is a web application that allows users to view stacks and their
 - Since my users are developers and they just need to copy that configuration and use it elsewhere i just added a copy button at the end of the card
   that lets the user copy the component configuration as json.
 
-# Dev
+## Dev
 
 - First i chose Vite over CRA due to it's performance and compiling speed.
 
