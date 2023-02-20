@@ -30,14 +30,24 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
         </Typography>
         <StatusPill isShared={is_shared} fontSize={1.5} />
       </Flex>
-      <Flex direction="row" justify="space-between" align="center">
+      <Flex
+        direction="row"
+        justify="space-between"
+        className="rowtocolumn"
+        align="center"
+      >
         <Flex direction="column" gap={0}>
           <Typography fontSize={1.5}>type</Typography>
           <Typography textOverflow fontSize={1}>
             {type}
           </Typography>
         </Flex>
-        <Flex direction="column" gap={0} textAlign="right">
+        <Flex
+          direction="column"
+          gap={0}
+          className="adjustalign"
+          textAlign="right"
+        >
           <Typography fontSize={1.2}>Created at</Typography>
           <Typography fontSize={1}>{useFormatDate(created)}</Typography>
         </Flex>

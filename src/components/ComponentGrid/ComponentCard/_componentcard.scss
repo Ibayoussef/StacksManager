@@ -8,4 +8,17 @@
     img {
         cursor: pointer;
     }
+
+    @media (max-width: 1000px) {
+        .adjustalign {
+            text-align: left !important;
+        }
+
+        .rowtocolumn {
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            align-items: flex-start !important;
+            gap: 10px !important;
+        }
+    }
 }

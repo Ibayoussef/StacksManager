@@ -19,8 +19,9 @@ function App() {
   const notify = () =>
     toast.error("Oops! Something went wrong please refresh the page");
   const [loading, setLoading] = useState(false);
-  const { stacks, searchValue, searchResult, status, filters } =
-    useSelector((state: any) => state.stacks);
+  const { stacks, searchValue, searchResult, status, filters } = useSelector(
+    (state: any) => state.stacks
+  );
   const { status: componentsStatus } = useSelector(
     (state: any) => state.stacks
   );
@@ -70,7 +71,12 @@ function App() {
 
       <Navbar />
       <Container>
-        <Flex direction="row" justify="space-between" align="center">
+        <Flex
+          direction="row"
+          className="toolbar-container"
+          justify="space-between"
+          align="center"
+        >
           <Searchbar />
           <Toolbar />
         </Flex>

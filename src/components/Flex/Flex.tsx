@@ -2,6 +2,7 @@ import React, { ReactNode } from "react";
 
 interface FlexProps {
   direction?: "row" | "column";
+  testid?: string;
   justify?:
     | "center"
     | "flex-start"
@@ -24,6 +25,7 @@ export const Flex: React.FC<FlexProps> = ({
   justify,
   gap,
   className,
+  testid,
   textAlign,
   align,
   children,
@@ -31,6 +33,7 @@ export const Flex: React.FC<FlexProps> = ({
   return (
     <div
       className={className}
+      data-testid={testid}
       style={{
         display: "flex",
         flexWrap: "wrap",

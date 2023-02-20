@@ -22,16 +22,38 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
- font-size: clamp(5px, 0.8vw, 18px);
+
+
 }
-.rdrEndEdge,.rdrStartEdge,.rdrInRange {
-  color: rgba(67, 62, 153, 0.76)!important;
-} 
+
+html {
+  font-size: calc(0.5em + 0.5vw)
+}
+
+.rdrEndEdge,
+.rdrStartEdge,
+.rdrInRange {
+  color: rgba(67, 62, 153, 0.76) !important;
+}
+
 .rdrDayStartPreview {
-  color:  rgba(67, 62, 153, 1)!important;
+  color: rgba(67, 62, 153, 1) !important;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+.toolbar-container {
+  @media (max-width: 768px) {
+    flex-direction: column !important;
+    width: 100% !important;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 20px;
+
+  }
+
 }
