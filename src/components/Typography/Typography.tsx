@@ -5,6 +5,7 @@ interface TypographyProps {
   bold?: boolean;
   fontSize?: number;
   textOverflow?: boolean;
+  card?: boolean;
 }
 
 /**
@@ -20,6 +21,7 @@ const Typography: React.FC<TypographyProps> = ({
   bold,
   fontSize,
   textOverflow,
+  card,
 }) => {
   return (
     <div
@@ -28,7 +30,7 @@ const Typography: React.FC<TypographyProps> = ({
         fontSize: `${fontSize}rem`,
         textOverflow: textOverflow ? "ellipsis" : "",
         overflow: textOverflow ? "hidden" : "",
-        width: textOverflow ? "150px" : "",
+        width: card ? "150px" : textOverflow ? "fit-content" : "",
       }}
     >
       {children}

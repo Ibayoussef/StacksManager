@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({
   return (
     <div className="header" data-testid="header">
       <div className="header__title">
-        <Typography bold fontSize={2}>
+        <Typography textOverflow bold fontSize={2}>
           {name}
         </Typography>
         <StatusPill isShared={isShared} />

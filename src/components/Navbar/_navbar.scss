@@ -8,5 +8,10 @@ $background-color: linear-gradient(90deg, rgba(143, 89, 157, 0.31) 2.92%, rgba(6
         cursor: pointer;
         width: 154px;
         height: 50px;
+
+        @media (max-width: 1000px) {
+            width: 130px;
+            height: 40px;
+        }
     }
 }

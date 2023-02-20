@@ -25,7 +25,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
   return (
     <Flex direction="column" className="card" gap={10}>
       <Flex direction="row" justify="space-between" align="center">
-        <Typography textOverflow fontSize={2}>
+        <Typography textOverflow card fontSize={1.6}>
           {name}
         </Typography>
         <StatusPill isShared={is_shared} fontSize={1.5} />
