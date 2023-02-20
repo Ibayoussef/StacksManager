@@ -59,26 +59,27 @@ My Stack Manager is a web application that allows users to view stacks and their
 - considered using `styleguidist`to generate a documentation server for the components that gets generated from the markdowns since it doesn't work with vite
   i had to add webpack/babel and some loaders.
 
-  ├── src
-  │ ├── components
-  | |├──TextComponent
-  │ │ ├── **/\*.scss
-  | | ├── **/\*.tsx
-  | | ├── **/\*.md
-  | | ├── **/\*.test.js
-  │ ├── assets
-  | | ├── all the images and icons
-  │ ├── styles
-  | | ├── \*\*/\*.scss
-  │ ├── Enums
-  | | ├── \*\*/\*.ts
-  │ ├── slices
-  | | ├── \*\*/\*.ts
-  | | ├── \*\*/\*.test.ts
-  │ ├── hooks
-  | | ├── tests
-  | | | ├── \*\*/\*.test.js
-  | | ├── \*\*/\*.ts
+
+src/
+├─ components/
+│  ├─ TestComponent/
+│  │  ├─ **/\*.scss
+│  │  ├─ **/\*.tsx
+│  │  ├─ **/\*.md
+│  │  ├─ **/\*.test.js
+│  ├─ assets/
+│  │  ├─ image/icons
+│  ├─ styles/
+│  │  ├─ **/\*.scss
+│  ├─ enums/
+│  │  ├─ **/\*.ts
+│  ├─ slices/
+│  │  ├─ **/\*.test.js
+│  │  ├─ **/\*.ts
+│  ├─ hooks/
+│  │  ├─ tests/
+│  │  │  ├─ **/\*.test.js
+│  │  ├─ **/\*.ts
 
 ## Features
 
