@@ -1,4 +1,10 @@
-# ComponentCard Component
+# ComponentCard
+
+ComponentCard is a React functional component that renders a card displaying information about a Component.
+
+## Props
+
+- `component`: A required object that represents the component.
 
 ## Usage
 
@@ -17,18 +23,6 @@
     configuration: {
       synchronous: false,
       timeout: 1200,
-      client_args: {},
-      user_namespace: null,
-      node_selectors: {},
-      node_affinity: {},
-      pod_settings: null,
-      kubeflow_pipelines_ui_port: 8080,
-      kubeflow_hostname: "https://www.myshowcase.zenml.io/pipeline",
-      kubeflow_namespace: "kubeflow",
-      kubernetes_context: "zenml-cluster",
-      skip_local_validations: false,
-      skip_cluster_provisioning: false,
-      skip_ui_daemon_provisioning: false,
     },
   }}
 />

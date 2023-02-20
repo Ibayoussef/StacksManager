@@ -8,7 +8,6 @@ import { sliceID } from "../../../hooks/useSliceID";
 import { useFormatDate } from "../../../hooks/useFormatDate";
 import { CopyToClipboard } from "react-copy-to-clipboard";
 import { toast } from "react-toastify";
-import YAML from "yaml";
 interface ComponentCardProps {
   component: Component;
 }
@@ -61,7 +60,7 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
         </Typography>
         {JSON.stringify(configuration) !== "{}" && (
           <CopyToClipboard
-            text={YAML.stringify(configuration)}
+            text={JSON.stringify(configuration)}
             onCopy={() => {
               setCopied(true);
             }}

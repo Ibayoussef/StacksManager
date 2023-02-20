@@ -1,5 +1,12 @@
 import { Stack } from "../Enums/Stack";
 
+/**
+
+Paginates an array of Stack objects by dividing it into smaller arrays of 4 objects each.
+@param {Stack[]} stacks - The array of Stack objects to be paginated.
+@returns {Stack[][]} An array of arrays, each containing up to 4 Stack objects, representing the paginated data.
+*/
+
 export const usePaginate = (stacks: Stack[]): Stack[][] => {
   const pages: Stack[][] = [];
   const pageCount = Math.ceil(stacks.length / 4);

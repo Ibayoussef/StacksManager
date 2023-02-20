@@ -8,5 +8,7 @@ export interface Component {
   name: string;
   type: string;
   flavor: string;
-  configuration: any;
+  configuration: {
+    [key: string]: string[];
+  };
 }

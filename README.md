@@ -43,3 +43,5 @@ To set up the application, follow these steps:
 1.  Clone the repository to your local machine.
 2.  Install the dependencies by running `yarn`.
 3.  Start the application by running `yarn dev`.
+4.  To run the documentation server `yarn docs`
+5.  To run jest tests `yarn test`

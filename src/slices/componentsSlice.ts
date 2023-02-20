@@ -2,6 +2,11 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ComponentState } from "../Enums/ComponentState";
 import { Component } from "../Enums/Component";
 
+/**
+ * The initial state for the component slice, which includes an empty array of components,
+ *  an empty array of filtered components, a status of "idle", and no error message.
+ */
+
 const initialState: ComponentState = {
   components: [],
   filteredComponents: [],
@@ -10,9 +15,9 @@ const initialState: ComponentState = {
 };
 
 /**
- * @async function that fetches the components from the api and returns them
- *  @returns {Component[]} list of components
- * */
+ * Async function that fetches the components from the API and returns them
+ * @returns {Promise<Component[]>} List of components
+ */
 export const fetchComponents = createAsyncThunk(
   "components/fetchComponents",
   async () => {
@@ -23,15 +28,20 @@ export const fetchComponents = createAsyncThunk(
 );
 
 /**
- * redux slice for the components that takes the initialState and
- * since there will be no actions to manipulate the component state
- * the reducers is an empty object
- * @extraReducers handling the promise created by the {fetchComponents}
- * */
+ * Redux slice for the components.
+ * @extraReducers Handling the promise created by the {fetchComponents}
+ */
 export const componentsSlice = createSlice({
   name: "components",
   initialState: initialState,
   reducers: {
+    /**
+    Filter components by ID.
+    @function
+    @name filterComponents
+    @param {ComponentState} state - Current state.
+    @param {import("@reduxjs/toolkit").PayloadAction<string>} action - Action with the payload of the ID.
+    */
     filterComponents: (state, action: PayloadAction<string>) => {
       const filterResult = state.components.filter((component: Component) =>
         action.payload.includes(component.id)
@@ -55,6 +65,14 @@ export const componentsSlice = createSlice({
   },
 });
 
+/**
+ * An action creator function that dispatches a filterComponents action, which filters the components array and updates the filteredComponents array.
+ */
+
 export const { filterComponents } = componentsSlice.actions;
+
+/**
+ * The reducer function for the components slice.
+ */
 
 export default componentsSlice.reducer;

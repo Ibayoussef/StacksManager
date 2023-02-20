@@ -30,7 +30,7 @@ const DropdownInput: React.FC = () => {
     setChecked(false);
   };
   return (
-    <div className="dropdowninput" ref={dropdownRef}>
+    <div className="dropdowninput" data-testid="dropdown" ref={dropdownRef}>
       <div className="dropdown">
         <input
           type="checkbox"
@@ -47,7 +47,7 @@ const DropdownInput: React.FC = () => {
           <div className="dropdown__arrow"></div>
         </label>
 
-        <ul className="dropdown__items">
+        <ul className="dropdown__items" data-testid="listbox">
           {users.map((user: string) => (
             <li key={user} onClick={() => handleSelect(user)}>
               {user.slice(0, 6)}

@@ -37,7 +37,10 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
         },
       ];
   return (
-    <div className={`filtersidebar ${state ? " active" : ""}`}>
+    <div
+      data-testid="filter-sidebar"
+      className={`filtersidebar ${state ? " active" : ""}`}
+    >
       <Flex
         direction="row"
         justify="space-between"

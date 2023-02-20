@@ -19,7 +19,7 @@ function App() {
   const notify = () =>
     toast.error("Oops! Something went wrong please refresh the page");
   const [loading, setLoading] = useState(false);
-  const { stacks, searchValue, searchResult, status, filters, error } =
+  const { stacks, searchValue, searchResult, status, filters } =
     useSelector((state: any) => state.stacks);
   const { status: componentsStatus } = useSelector(
     (state: any) => state.stacks

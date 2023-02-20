@@ -19,31 +19,33 @@ const StackInfo: React.FC<StackInfoProps> = ({
       "Sorry this feature is not yet available, we are working on it"
     );
   return (
-    <Flex direction="column" className="stackinfo" gap={24}>
-      <Flex direction="column" gap={10}>
-        <Typography fontSize={2}>UUID</Typography>
-        <Typography fontSize={1}>{id}</Typography>
-      </Flex>
-      <Flex direction="row" justify="space-between" align="center">
+    <div data-testid="stack-info">
+      <Flex direction="column" className="stackinfo" gap={24}>
         <Flex direction="column" gap={10}>
-          <Typography fontSize={2}>Created at</Typography>
-          <Typography fontSize={1}>{useFormatDate(created)}</Typography>
+          <Typography fontSize={2}>UUID</Typography>
+          <Typography fontSize={1}>{id}</Typography>
+        </Flex>
+        <Flex direction="row" justify="space-between" align="center">
+          <Flex direction="column" gap={10}>
+            <Typography fontSize={2}>Created at</Typography>
+            <Typography fontSize={1}>{useFormatDate(created)}</Typography>
+          </Flex>
+          <Flex direction="column" gap={10}>
+            <Typography fontSize={2}>Author</Typography>
+            <Typography fontSize={1}>{sliceID(user)}</Typography>
+          </Flex>
         </Flex>
         <Flex direction="column" gap={10}>
-          <Typography fontSize={2}>Author</Typography>
-          <Typography fontSize={1}>{sliceID(user)}</Typography>
+          <Typography fontSize={2}>Project</Typography>
+          <Typography fontSize={1}>{sliceID(project)}</Typography>
+        </Flex>
+        <Flex justify="flex-end" className="button-container">
+          <StatusPill onClick={() => notify()} button fontSize={1}>
+            Delete
+          </StatusPill>
         </Flex>
       </Flex>
-      <Flex direction="column" gap={10}>
-        <Typography fontSize={2}>Project</Typography>
-        <Typography fontSize={1}>{sliceID(project)}</Typography>
-      </Flex>
-      <Flex justify="flex-end" className="button-container">
-        <StatusPill onClick={() => notify()} button fontSize={1}>
-          Delete
-        </StatusPill>
-      </Flex>
-    </Flex>
+    </div>
   );
 };
 

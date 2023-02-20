@@ -33,7 +33,7 @@ const Header: React.FC<HeaderProps> = ({
     action(!state);
   };
   return (
-    <div className="header">
+    <div className="header" data-testid="header">
       <div className="header__title">
         <Typography bold fontSize={2}>
           {name}

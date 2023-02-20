@@ -7,17 +7,19 @@ import { Component } from "../../Enums/Component";
 const Grid: React.FC = () => {
   const { filteredComponents } = useSelector((state: any) => state.components);
   return (
-    <Flex
-      direction="row"
-      gap={26}
-      justify="center"
-      className="grid"
-      align="flex-start"
-    >
-      {filteredComponents.map((component: Component) => (
-        <ComponentCard key={component.id} component={component} />
-      ))}
-    </Flex>
+    <div data-testid="component-grid">
+      <Flex
+        direction="row"
+        gap={26}
+        justify="center"
+        className="grid"
+        align="flex-start"
+      >
+        {filteredComponents.map((component: Component) => (
+          <ComponentCard key={component.id} component={component} />
+        ))}
+      </Flex>
+    </div>
   );
 };
 export default Grid;

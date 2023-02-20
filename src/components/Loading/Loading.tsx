@@ -7,6 +7,7 @@ const Loading: React.FC<LoadingProps> = ({ demo }) => {
   return (
     <div
       className="scene-container"
+      data-testid="loading-container"
       style={{
         position: demo ? "relative" : "fixed",
         width: demo ? "500px" : "100%",
