@@ -24,8 +24,10 @@
         flex-direction: column;
         gap: 20px;
 
+
         &.collapsed {
             height: 800px;
+            padding: 20px;
         }
     }
 }
