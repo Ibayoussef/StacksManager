@@ -1,7 +1,13 @@
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import {
+  createAsyncThunk,
+  createSlice,
+  PayloadAction,
+  current,
+} from "@reduxjs/toolkit";
 import { Stack } from "../Enums/Stack";
 import { StacksState } from "../Enums/StacksState";
 import { Filters } from "../Enums/Filters";
+import { startOfDay } from "date-fns";
 
 /**
 
@@ -135,17 +141,29 @@ export const stacksSlice = createSlice({
         );
       }
 
+      if (
+        state.filters.created &&
+        state.filters.created.startDate === state.filters.created.endDate
+      ) {
+        state.searchResult = state.searchResult.filter((stack: Stack) => {
+          const stackCreatedDate = startOfDay(
+            new Date(stack.created)
+          ).getTime();
+          const startDate = new Date(state.filters.created.startDate).getTime();
+
+          return stackCreatedDate === startDate;
+        });
+      }
       // Filter by creation date range
       if (
         state.filters.created &&
-        state.filters.created.startDate &&
-        state.filters.created.endDate
+        state.filters.created.startDate !== state.filters.created.endDate
       ) {
         state.searchResult = state.searchResult.filter((stack: Stack) => {
           const stackCreatedDate = new Date(stack.created).getTime();
           const startDate = new Date(state.filters.created.startDate).getTime();
           const endDate = new Date(state.filters.created.endDate).getTime();
-          return stackCreatedDate > startDate && stackCreatedDate < endDate;
+          return stackCreatedDate >= startDate && stackCreatedDate <= endDate;
         });
       }
     },

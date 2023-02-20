@@ -204,8 +204,8 @@ describe("stacksSlice", () => {
         shared: false,
         inactive: false,
         created: {
-          startDate: new Date("2022-01-01"),
-          endDate: new Date("2022-01-04"),
+          startDate: new Date("2022-01-02"),
+          endDate: new Date("2022-01-03"),
         },
       },
       searchValue: "",

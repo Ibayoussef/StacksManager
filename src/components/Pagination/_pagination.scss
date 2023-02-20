@@ -29,6 +29,10 @@
         gap: 22px;
     }
 
+    .disabled {
+        opacity: 0.5;
+    }
+
     .active {
         background: linear-gradient(180deg, #5F5C5C 0%, #8F599D 100%);
         width: fit-content;

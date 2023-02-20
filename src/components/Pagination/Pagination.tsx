@@ -12,23 +12,28 @@ interface PaginationProps {
 
 const Pagination: React.FC<PaginationProps> = ({ page, pagesNumber }) => {
   const { state, action } = page;
+  const disablePrev = state === 0;
+  const disableNext = state + 1 === pagesNumber.length;
   const handleNext = () => {
-    if (state + 1 === pagesNumber.length) {
-      action(0);
+    if (disableNext) {
+      return;
     } else {
       action(state + 1);
     }
   };
   const handlePrev = () => {
-    if (state === 0) {
-      action(pagesNumber.length - 1);
+    if (disablePrev) {
+      return;
     } else {
       action(state - 1);
     }
   };
   return (
     <div className="pagination">
-      <p className="prev" onClick={handlePrev}>
+      <p
+        className={`prev ${disablePrev ? "disabled" : null}`}
+        onClick={handlePrev}
+      >
         Prev
       </p>
       <div className="numbers">
@@ -43,7 +48,10 @@ const Pagination: React.FC<PaginationProps> = ({ page, pagesNumber }) => {
         ))}
       </div>
 
-      <p className="next" onClick={handleNext}>
+      <p
+        className={`next ${disableNext ? "disabled" : null}`}
+        onClick={handleNext}
+      >
         Next
       </p>
     </div>
