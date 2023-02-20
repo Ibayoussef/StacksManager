@@ -6,40 +6,27 @@ My Stack Manager is a web application that allows users to view stacks and their
 
 ## UI/UX
 
-- The first thing thing that comes to mind that it's going to be a devops tool created mainly for developers as users.
+- The first thing that comes to mind is that it's going to be a DevOps tool created mainly for developers as users.
 
-- There should be a clear UI showing the key information about each stack with the ability to search/filter/sort them for
-  easy navigation also a pagination that is triggered once we have many stacks because pagination works better on websites where users are looking
-  for specific pieces of content. Whereas infinite scroll is better suited for websites where you want users to discover
-  and explore the content available.
+- There should be a clear UI showing the key information about each stack, with the ability to search, filter, and sort them for easy navigation. Also, a pagination feature should be triggered once we have many stacks, because pagination works better on websites where users are looking for specific pieces of content. Whereas, infinite scroll is better suited for websites where you want users to discover and explore the content available.
 
-- There should be a space where the user can access each stack's details also the component's details.
+- There should be a space where the user can access each stack's details, as well as the component's details.
 
-- Wanted a clear UI showing everything in one page so i proceeded to consider that each stack is a dropdown once opened, i will get the stack details
-  and it's components details.
+- I wanted a clear UI showing everything in one page, so I proceeded to consider that each stack is a dropdown. Once opened, I will get the stack details and its component's details.
 
-- Grouping the search and filtering in one place called toolbar since they server kind of a similar purpose:
-  Name of the stack and the ID are searchable values so i'm including them in the search functionality
-  is_shared/user/dates are limited values that depends of the stacks data so i'm including them in the filtering functionality?
+- I grouped the search and filtering in one place called toolbar since they serve a similar purpose. The name of the stack and the ID are searchable values, so I'm including them in the search functionality. The is_shared/user/dates are limited values that depend on the stack's data, so I'm including them in the filtering functionality.
 
-- added the create stack button in case the api integrated a `post` method endpoint to the toolbar since it's manipulating our stacks list and it will be adding
-  data to it but also since we don't have the endpoint yet, i had to let the user know by adding a toast message informing the user about the situation.
+- I added the create stack button in case the API integrated a 'post' method endpoint to the toolbar. Since it's manipulating our stack's list, it will be adding data to it, but also since we don't have the endpoint yet, I had to let the user know by adding a toast message informing the user about the situation.
 
-- Chose Roboto font family since sans-serif fonts are formal clear and more readable and divided the app into bold and regular fonts.
+- I chose the Roboto font family since sans-serif fonts are formal, clear, and more readable, and divided the app into bold and regular fonts.
 
-- For Colors just used a color palette to match the ZenML brand.
+- For colors, I just used a color palette to match the ZenML brand.
 
-- Now for the Stack dropdown what should i display in it to keep it clean i asked myself "what would the user need from the stack before opening the dropdown?"
-  key information to include in the dropdown header would be Name, is_shared, number of components then an arrow that lets the user open it
-  once opened i'll show all the stack information on the right side of the dropdown neat and clear with a delete button under it in case the api integrated `delete`
-  endpoint, and of course i'm letting the user know that the functionality is still not available with a toast message
-  and to the left a grid of components but how can i should all the information about the components in that tight space?
+- Now for the Stack dropdown, what should I display in it to keep it clean? I asked myself "what would the user need from the stack before opening the dropdown?" Key information to include in the dropdown header would be the Name, is_shared, the number of components, and then an arrow that lets the user open it. Once opened, I'll show all the stack information on the right side of the dropdown neat and clear, with a delete button under it in case the API integrated a 'delete' endpoint. Of course, I'm letting the user know that the functionality is still not available with a toast message. To the left, a grid of components, but how can I show all the information about the components in that tight space?
 
-- The handle that problem i came up with making the grid scrollable and includes cards containing all the information about each
-  component but the configuration won't fit in.
+- To handle that problem, I came up with making the grid scrollable and including cards containing all the information about each component. But the configuration won't fit in.
 
-- Since my users are developers and they just need to copy that configuration and use it elsewhere i just added a copy button at the end of the card
-  that lets the user copy the component configuration as json.
+- Since my users are developers and they just need to copy that configuration and use it elsewhere, I just added a copy button at the end of the card that lets the user copy the component configuration as JSON.
 
 ## Dev
 
