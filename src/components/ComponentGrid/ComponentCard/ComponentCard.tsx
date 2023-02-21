@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Flex } from "../../Flex/Flex";
 import Typography from "../../Typography/Typography";
-import StatusPill from "../../Statuspill/StatusPill";
+import StatusPill from "../../StatusPill/StatusPill";
 import copy from "../../../assets/copy.svg";
 import { Component } from "../../../Enums/Component";
 import { sliceID } from "../../../hooks/useSliceID";
