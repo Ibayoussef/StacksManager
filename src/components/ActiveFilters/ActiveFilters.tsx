@@ -1,12 +1,11 @@
 import React from "react";
 import { Flex } from "../Flex/Flex";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { AppState } from "../../Enums/AppState";
 import Typography from "../Typography/Typography";
 import close from "../../assets/close.svg";
 import { format } from "date-fns";
 import { storeFilters } from "../../slices/stacksSlice";
-import { useDispatch } from "react-redux";
 const ActiveFilters: React.FC = () => {
   const { filters } = useSelector((state: AppState) => state.stacks);
   const dispatch = useDispatch();
