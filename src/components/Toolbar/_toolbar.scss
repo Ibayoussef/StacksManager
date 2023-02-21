@@ -1,7 +1,12 @@
 .toolbar {
 
-    img {
+    svg {
         cursor: pointer;
+        fill: url(#grad1);
+    }
+
+    .add {
+        fill: url(#grad2);
     }
 
     @media (max-width: 768px) {

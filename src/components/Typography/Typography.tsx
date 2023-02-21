@@ -27,7 +27,10 @@ const Typography: React.FC<TypographyProps> = ({
     <div
       style={{
         fontWeight: bold ? 700 : 400,
-        fontSize: `${fontSize}rem`,
+        fontSize: `${
+          fontSize && fontSize > 2 ? fontSize + "px" : fontSize + "rem"
+        }`,
+        color: "#252525",
         textOverflow: textOverflow ? "ellipsis" : "",
         overflow: textOverflow ? "hidden" : "",
         width: card ? "150px" : textOverflow ? "fit-content" : "",

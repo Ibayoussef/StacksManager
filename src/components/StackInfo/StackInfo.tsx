@@ -1,11 +1,11 @@
 import React from "react";
 import Typography from "../Typography/Typography";
 import { Flex } from "../Flex/Flex";
-import StatusPill from "../StatusPill/StatusPill";
 import { ContentProps } from "../Dropdown/Content/Content";
 import { sliceID } from "../../hooks/useSliceID";
 import { useFormatDate } from "../../hooks/useFormatDate";
 import { toast } from "react-toastify";
+import Button from "../Button/Button";
 interface StackInfoProps extends ContentProps {}
 
 const StackInfo: React.FC<StackInfoProps> = ({
@@ -21,8 +21,10 @@ const StackInfo: React.FC<StackInfoProps> = ({
   return (
     <Flex direction="column" testid="stack-info" className="stackinfo" gap={24}>
       <Flex direction="column" gap={10}>
-        <Typography fontSize={2}>UUID</Typography>
-        <Typography fontSize={1}>{id}</Typography>
+        <Typography bold fontSize={16}>
+          UUID
+        </Typography>
+        <Typography fontSize={16}>{id}</Typography>
       </Flex>
       <Flex
         direction="row"
@@ -31,22 +33,28 @@ const StackInfo: React.FC<StackInfoProps> = ({
         align="center"
       >
         <Flex direction="column" gap={10}>
-          <Typography fontSize={2}>Created at</Typography>
-          <Typography fontSize={1}>{useFormatDate(created)}</Typography>
+          <Typography bold fontSize={16}>
+            Created at
+          </Typography>
+          <Typography fontSize={16}>{useFormatDate(created)}</Typography>
         </Flex>
         <Flex direction="column" gap={10}>
-          <Typography fontSize={2}>Author</Typography>
-          <Typography fontSize={1}>{sliceID(user)}</Typography>
+          <Typography bold fontSize={16}>
+            Author
+          </Typography>
+          <Typography fontSize={16}>{sliceID(user)}</Typography>
         </Flex>
       </Flex>
       <Flex direction="column" gap={10}>
-        <Typography fontSize={2}>Project</Typography>
-        <Typography fontSize={1}>{sliceID(project)}</Typography>
+        <Typography bold fontSize={16}>
+          Project
+        </Typography>
+        <Typography fontSize={16}>{sliceID(project)}</Typography>
       </Flex>
       <Flex justify="flex-end" className="button-container">
-        <StatusPill onClick={() => notify()} button fontSize={1}>
+        <Button onClick={() => notify()} fontSize={1}>
           Delete
-        </StatusPill>
+        </Button>
       </Flex>
     </Flex>
   );

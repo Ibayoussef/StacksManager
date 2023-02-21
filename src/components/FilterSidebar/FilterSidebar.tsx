@@ -7,8 +7,8 @@ import Checkbox from "./Checkbox/Checkbox";
 import { DateRange } from "react-date-range";
 import { useDispatch, useSelector } from "react-redux";
 import { storeFilters } from "../../slices/stacksSlice";
-import StatusPill from "../StatusPill/StatusPill";
 import { AppState } from "../../Enums/AppState";
+import Button from "../Button/Button";
 interface ISidebarActive {
   state: boolean;
   action: React.Dispatch<React.SetStateAction<boolean>>;
@@ -89,7 +89,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
           moveRangeOnFirstSelection={false}
           ranges={range}
         />
-        <StatusPill
+        <Button
           onClick={() =>
             dispatch(
               storeFilters({
@@ -100,11 +100,10 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
               })
             )
           }
-          button
           fontSize={1}
         >
           Clear Filters
-        </StatusPill>
+        </Button>
       </Flex>
     </div>
   );

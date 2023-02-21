@@ -26,24 +26,24 @@ describe("Toolbar component", () => {
     });
   });
   it("displays the filter sidebar when filter icon is clicked", () => {
-    const { getByAltText, getByTestId } = render(
+    const { getByTestId } = render(
       <Provider store={store}>
         <Toolbar />
       </Provider>
     );
-    const filterIcon = getByAltText("filter");
+    const filterIcon = getByTestId("filter");
     fireEvent.click(filterIcon);
     const filterSidebar = getByTestId("filter-sidebar");
     expect(filterSidebar).toBeInTheDocument();
   });
 
   it("displays an error toast when add icon is clicked", () => {
-    const { getByAltText } = render(
+    const { getByTestId } = render(
       <Provider store={store}>
         <Toolbar />
       </Provider>
     );
-    const addIcon = getByAltText("add");
+    const addIcon = getByTestId("add");
     fireEvent.click(addIcon);
   });
 });

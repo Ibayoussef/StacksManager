@@ -23,12 +23,69 @@ a {
 .nav {
   background: linear-gradient(90deg, rgba(143, 89, 157, 0.31) 2.92%, rgba(67, 62, 153, 0.76) 78.53%);
   padding: 0px 41px;
+  position: relative;
+}
+
+.nav .ocean {
+  height: 30px;
+  /* change the height of the waves here */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-x: hidden;
+}
+
+.nav .wave {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 88.7'%3E%3Cpath d='M800 56.9c-155.5 0-204.9-50-405.5-49.9-200 0-250 49.9-394.5 49.9v31.8h800v-.2-31.6z' fill='%238f599d4f'/%3E%3C/svg%3E");
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  animation: wave 10s -3s linear infinite;
+  transform: translate3d(0, 0, 0);
+  opacity: 0.8;
+}
+
+.nav .wave:nth-of-type(2) {
+  bottom: 0;
+  animation: wave 18s linear reverse infinite;
+  opacity: 0.5;
+}
+
+.nav .wave:nth-of-type(3) {
+  bottom: 0;
+  animation: wave 20s -1s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(-25%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .nav img {
   cursor: pointer;
   width: 154px;
   height: 50px;
+  position: relative;
+  z-index: 9999999;
+}
+
+@media (max-width: 1000px) {
+  .nav img {
+    width: 130px;
+    height: 40px;
+  }
 }
 
 .input-container {
@@ -54,7 +111,7 @@ a {
   border-radius: 8px;
   padding-left: 60px;
   font-weight: 400;
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 28px;
   outline: none;
 }
@@ -65,20 +122,70 @@ a {
   }
 }
 
-.pill {
-  background: #433E99;
-  border-radius: 8px;
-  width: fit-content;
-  padding: 10px 23px;
-  font-weight: 400;
-  font-size: 2rem;
-  line-height: 38px;
-  color: #FFFFFF;
+.pill .status {
+  font-size: 16px;
 }
 
-.inactive {
-  background: rgba(67, 62, 153, 0.38);
+.pill.inactive {
   color: rgba(255, 255, 255, 0.63);
+}
+
+.pill.inactive .circle {
+  border-radius: 50%;
+  margin: 10px;
+  height: 20px;
+  width: 20px;
+  background: rgba(255, 255, 255, 0.63);
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.63);
+  animation: pulse-gray 2s infinite;
+}
+
+@keyframes pulse-gray {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+  }
+}
+
+.pill.shared {
+  color: rgba(66, 255, 120, 0.7450980392);
+}
+
+.pill.shared .circle {
+  border-radius: 50%;
+  margin: 10px;
+  height: 20px;
+  width: 20px;
+  background: rgb(51, 217, 178);
+  box-shadow: 0 0 0 0 rgb(51, 217, 178);
+  animation: pulse-green 2s infinite;
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(51, 217, 178, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(51, 217, 178, 0);
+  }
 }
 
 .header {
@@ -102,7 +209,7 @@ a {
 }
 
 .header__title {
-  width: 30%;
+  width: 50%;
   flex-wrap: wrap;
 }
 
@@ -153,7 +260,7 @@ a {
 }
 
 .content.collapsed {
-  height: 480px;
+  height: 350px;
   padding: 42px;
 }
 
@@ -185,6 +292,13 @@ a {
   left: 50%;
   transform: translateX(-50%);
   width: 50%;
+}
+
+@media (max-width: 1000px) {
+  .appcontainer video {
+    width: 100%;
+    height: 60vh;
+  }
 }
 
 .card {
@@ -259,8 +373,13 @@ a {
   }
 }
 
-.toolbar img {
+.toolbar svg {
   cursor: pointer;
+  fill: url(#grad1);
+}
+
+.toolbar .add {
+  fill: url(#grad2);
 }
 
 @media (max-width: 768px) {
@@ -287,7 +406,7 @@ a {
 .pagination .next,
 .pagination .number {
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 1.5rem;
   line-height: 23px;
   cursor: pointer;
   color: rgba(9, 7, 7, 0.74);
@@ -301,11 +420,17 @@ a {
   gap: 22px;
 }
 
+.pagination .disabled {
+  opacity: 0.5;
+}
+
 .pagination .active {
   background: linear-gradient(180deg, #5F5C5C 0%, #8F599D 100%);
+  width: fit-content;
+  height: fit-content;
   border-radius: 100%;
   color: white;
-  padding: 4px 12px;
+  padding: 6px 12px;
 }
 
 .checkbox {
@@ -449,6 +574,29 @@ a {
 
 .filtersidebar__filter-list {
   padding: 30px 18px;
+}
+
+@media (max-width: 768px) {
+  .filtersidebar.active {
+    width: 100%;
+  }
+}
+
+.button {
+  background: #B52C2C;
+  border-radius: 8px;
+  width: fit-content;
+  padding: 10px 23px;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 38px;
+  cursor: pointer;
+  color: #FFFFFF;
+  transition: all 0.4s;
+}
+
+.button:hover {
+  background: #960202;
 }
 
 :root {

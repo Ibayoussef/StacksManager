@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Flex } from "../../Flex/Flex";
 import Typography from "../../Typography/Typography";
-import StatusPill from "../../StatusPill/StatusPill";
+import StatusPill from "../../Statuspill/StatusPill";
 import copy from "../../../assets/copy.svg";
 import { Component } from "../../../Enums/Component";
 import { sliceID } from "../../../hooks/useSliceID";
@@ -27,10 +27,10 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
   return (
     <Flex direction="column" className="card" gap={10}>
       <Flex direction="row" justify="space-between" align="center">
-        <Typography textOverflow card fontSize={1.6}>
+        <Typography bold textOverflow card fontSize={21}>
           {name}
         </Typography>
-        <StatusPill isShared={is_shared} fontSize={1.5} />
+        <StatusPill isShared={is_shared} />
       </Flex>
       <Flex
         direction="row"
@@ -39,8 +39,10 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
         align="center"
       >
         <Flex direction="column" gap={0}>
-          <Typography fontSize={1.5}>type</Typography>
-          <Typography textOverflow fontSize={1}>
+          <Typography bold fontSize={16}>
+            type
+          </Typography>
+          <Typography textOverflow fontSize={16}>
             {type}
           </Typography>
         </Flex>
@@ -50,22 +52,28 @@ const ComponentCard: React.FC<ComponentCardProps> = ({ component }) => {
           className="adjustalign"
           textAlign="right"
         >
-          <Typography fontSize={1.2}>Created at</Typography>
-          <Typography fontSize={1}>{useFormatDate(created)}</Typography>
+          <Typography bold fontSize={16}>
+            Created at
+          </Typography>
+          <Typography fontSize={16}>{useFormatDate(created)}</Typography>
         </Flex>
       </Flex>
       <Flex direction="row" justify="space-between" align="center">
         <Flex direction="column" gap={0}>
-          <Typography fontSize={1.2}>flavor</Typography>
-          <Typography fontSize={1}>{flavor}</Typography>
+          <Typography bold fontSize={16}>
+            flavor
+          </Typography>
+          <Typography fontSize={16}>{flavor}</Typography>
         </Flex>
         <Flex direction="column" gap={0} textAlign="right">
-          <Typography fontSize={1.2}>author</Typography>
-          <Typography fontSize={1}>{sliceID(user)}</Typography>
+          <Typography bold fontSize={16}>
+            author
+          </Typography>
+          <Typography fontSize={16}>{sliceID(user)}</Typography>
         </Flex>
       </Flex>
       <Flex direction="row" justify="flex-start" gap={11} align="center">
-        <Typography fontSize={1.2}>
+        <Typography fontSize={18}>
           {JSON.stringify(configuration) !== "{}"
             ? "Copy Configuration"
             : "Configuration not available"}

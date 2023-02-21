@@ -10,6 +10,11 @@ const Navbar: React.FC = () => {
         src={reactLogo}
         alt="logo"
       />
+      <div className="ocean">
+        <div className="wave"></div>
+        <div className="wave"></div>
+        <div className="wave"></div>
+      </div>
     </div>
   );
 };

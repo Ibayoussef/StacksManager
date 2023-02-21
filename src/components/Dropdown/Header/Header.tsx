@@ -1,6 +1,6 @@
 import React from "react";
 import Typography from "../../Typography/Typography";
-import StatusPill from "../../StatusPill/StatusPill";
+import StatusPill from "../../Statuspill/StatusPill";
 import box from "../../../assets/box.svg";
 import arrow from "../../../assets/collapse.svg";
 import { useDispatch } from "react-redux";
