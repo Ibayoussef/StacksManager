@@ -53,7 +53,12 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ sidebarActive }) => {
         <Typography bold fontSize={2}>
           Filters
         </Typography>
-        <img src={close} alt="close" onClick={() => action(false)} />
+        <img
+          className="close"
+          src={close}
+          alt="close"
+          onClick={() => action(false)}
+        />
       </Flex>
       <Flex
         direction="column"

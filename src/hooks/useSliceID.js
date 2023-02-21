@@ -1,7 +1,0 @@
-/**
-
-Returns the first 6 characters of the provided string.
-@param {string} id - The string to be sliced.
-@returns {string} The first 6 characters of the provided string.
-*/
-export const sliceID = (id) => id.slice(0, 6);

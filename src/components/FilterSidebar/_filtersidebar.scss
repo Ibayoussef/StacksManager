@@ -13,8 +13,14 @@
     top: 0;
     right: 0;
 
+
+    .close {
+        cursor: pointer;
+    }
     >* {
         opacity: 0;
+
+       
     }
 
     transition: all .8s;

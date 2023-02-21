@@ -1,11 +1,17 @@
 .appcontainer {
   padding: 81px 34px;
 
+  .toolbar-container {
+    flex-wrap: nowrap !important;
+  }
+
   video {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     width: 50%;
+
+
 
     @media (max-width: 1000px) {
       width: 100%;
